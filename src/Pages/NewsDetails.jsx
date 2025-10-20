@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from 'react';
+import Header from '../Components/Header';
+import RightAside from '../Components/HomeLayout/RightAside';
+import NewsDetailsCard from '../Components/NewsDetailsCard';
+import { useLoaderData, useParams } from 'react-router';
+
+const NewsDetails = () => {
+  const data = useLoaderData();
+  const { id } = useParams();
+  const [news, setNews] = useState({});
+  //   console.log(news);
+
+  useEffect(() => {
+    const newsDetails = data.find((news) => news.id == id);
+    setNews(newsDetails);
+  }, [data, id]);
+
+  return (
+    <div className="max-w-[1000px] mx-auto">
+      <header className="py-3">
+        <Header></Header>
+      </header>
+
+      <main className="grid grid-cols-12 gap-5 mt-5">
+        <section className="col-span-9">
+          <h2 className="font-bold mb-5">News Details</h2>
+          <NewsDetailsCard news={news}></NewsDetailsCard>
+        </section>
+
+        <aside className="col-span-3 sticky overflow-y-auto self-start top-0 h-screen">
+          <RightAside></RightAside>
+        </aside>
+      </main>
+    </div>
+  );
+};
+
+export default NewsDetails;
