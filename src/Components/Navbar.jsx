@@ -9,14 +9,14 @@ const Navbar = () => {
 
   const handleLogOut = (e) => {
     e.preventDefault();
-    console.log('user trying to log out');
+    // console.log('user trying to log out');
     logOut()
       .then(() => {
         alert('Logged Out Successfully!');
         navigate('/auth/login');
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        // console.log(err);
       });
   };
 

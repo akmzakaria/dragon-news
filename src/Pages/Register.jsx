@@ -33,8 +33,8 @@ const Register = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate('/');
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            // console.log(err);
             setUser(user);
           });
       })
