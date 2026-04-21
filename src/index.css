@@ -30,3 +30,34 @@
 .nav a:hover {
   color: #d72050;
 }
+
+/* Modern Alert Animations */
+@keyframes slideInDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInDown 0.4s ease-out forwards;
+}
+
+.animate-slide-out {
+  animation: slideOutUp 0.3s ease-in forwards;
+}

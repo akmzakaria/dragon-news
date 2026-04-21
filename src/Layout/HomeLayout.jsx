@@ -11,25 +11,30 @@ const HomeLayout = () => {
   const { state } = useNavigation();
 
   return (
-    <div>
+    <div className="min-h-screen">
       <header>
         <Header></Header>
-        <section className="w-11/12 mx-auto my-3">
+        <section className="w-full md:w-11/12 mx-auto my-2 md:my-3 px-3 md:px-0">
           <LatestNews></LatestNews>
         </section>
-        <nav className="w-11/12 mx-auto my-3">
+        <nav className="w-full md:w-11/12 mx-auto my-2 md:my-3 px-3 md:px-0">
           <Navbar></Navbar>
         </nav>
       </header>
 
-      <main className="w-11/12 mx-auto my-3 grid grid-cols-12 gap-5">
-        <aside className="col-span-3 sticky overflow-y-auto self-start top-0 h-screen custom-scrollbar">
+      <main className="w-full md:w-11/12 mx-auto my-2 md:my-3 px-3 md:px-0 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5">
+        {/* Left Sidebar - Hidden on mobile, visible on md and above */}
+        <aside className="hidden md:block md:col-span-3 sticky overflow-y-auto self-start top-0 h-screen custom-scrollbar">
           <LeftAside></LeftAside>
         </aside>
-        <section className="main col-span-6">
+        
+        {/* Main Content */}
+        <section className="main col-span-1 md:col-span-6">
           {state == 'loading' ? <Loading></Loading> : <Outlet></Outlet>}
         </section>
-        <aside className="col-span-3 sticky overflow-y-auto self-start top-0 h-screen ">
+        
+        {/* Right Sidebar - Hidden on mobile, visible on md and above */}
+        <aside className="hidden md:block md:col-span-3 sticky overflow-y-auto self-start top-0 h-screen">
           <RightAside></RightAside>
         </aside>
       </main>

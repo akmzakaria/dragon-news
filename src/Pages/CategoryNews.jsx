@@ -5,7 +5,6 @@ import NewsCard from '../Components/NewsCard';
 const CategoryNews = () => {
   const { id } = useParams();
   const data = useLoaderData();
-  // console.log(id, data);
 
   const [categoryNews, setCategoryNews] = useState([]);
 
@@ -19,18 +18,16 @@ const CategoryNews = () => {
       return;
     } else {
       const filteredNews = data.filter((news) => news.category_id == id);
-      // console.log(filteredNews);
-
       setCategoryNews(filteredNews);
     }
   }, [data, id]);
 
   return (
-    <div>
-      <h2 className="font-bold mb-5">
+    <div className="w-full">
+      <h2 className="font-bold mb-4 md:mb-5 text-base md:text-lg">
         Total <span className="text-secondary">{categoryNews.length}</span> news found
       </h2>
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 gap-3 md:gap-5">
         {categoryNews.map((news) => (
           <NewsCard key={news.id} news={news}></NewsCard>
         ))}
