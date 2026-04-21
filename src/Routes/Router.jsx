@@ -1,15 +1,15 @@
-import { createBrowserRouter } from 'react-router';
-import HomeLayout from '../Layout/HomeLayout';
-import Home from '../Pages/Home';
-import CategoryNews from '../Pages/CategoryNews';
-import About from '../Components/About';
-import Career from '../Components/Career';
-import Register from '../Pages/Register';
-import Login from '../Pages/Login';
-import AuthLayout from '../Layout/AuthLayout';
-import NewsDetails from '../Pages/NewsDetails';
-import PrivateRoute from '../Provider/PrivateRoute';
-import Loading from '../Pages/Loading';
+import { createBrowserRouter } from 'react-router'
+import HomeLayout from '../Layout/HomeLayout'
+import Home from '../Pages/Home'
+import CategoryNews from '../Pages/CategoryNews'
+import About from '../Components/About'
+import Career from '../Components/Career'
+import Register from '../Pages/Register'
+import Login from '../Pages/Login'
+import AuthLayout from '../Layout/AuthLayout'
+import NewsDetails from '../Pages/NewsDetails'
+import PrivateRoute from '../Provider/PrivateRoute'
+import Loading from '../Pages/Loading'
 
 const router = createBrowserRouter([
   {
@@ -59,17 +59,13 @@ const router = createBrowserRouter([
     path: 'news-details/:id',
     loader: () => fetch('/news.json'),
     hydrateFallbackElement: <Loading></Loading>,
-    element: (
-      <PrivateRoute>
-        <NewsDetails></NewsDetails>
-      </PrivateRoute>
-    ),
+    element: <NewsDetails></NewsDetails>,
   },
 
   {
     path: '*',
     element: <h2>Error404</h2>,
   },
-]);
+])
 
-export default router;
+export default router
